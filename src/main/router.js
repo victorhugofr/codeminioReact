@@ -1,14 +1,18 @@
 import React from 'react'
 import {Route, Switch, HashRouter} from 'react-router-dom'
-import Login from '../views/login'
-import CadastroUsuario from '../views/cadastroUsuario'
+import LoginMorador from '../views/loginMorador'
+import CadastroMorador from '../views/cadastroMorador'
+import LoginFuncionario from '../views/loginFuncionario'
+import ChooseRole from '../views/chooseRole'
 
 function Rotas(){
     return(
         <HashRouter>
             <Switch>
-                <Route path="/login" component={Login}></Route>
-                <Route path="/cadastrar" component={CadastroUsuario}></Route>
+                <Route path="/chooseRole" component={ChooseRole}></Route>
+                <Route path="/loginMorador" component={LoginMorador}></Route>
+                <Route path="/loginFuncionario" component={LoginFuncionario}></Route>
+                <Route path="/morador/cadastrar" component={CadastroMorador}></Route>
             </Switch>
         </HashRouter>
     )

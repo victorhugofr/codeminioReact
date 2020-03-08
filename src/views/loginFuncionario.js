@@ -3,11 +3,11 @@ import Card from '../components/card'
 import FormGroup from '../components/form-group'
 import {withRouter} from 'react-router-dom'
 
-import UsuarioService from '../app/service/usuarioService'
+import FuncionarioService from '../app/service/funcionarioService'
 import {mensagemErro} from '../components/toastr'
 import {mensagemSucesso} from '../components/toastr'
 
-class Login extends React.Component{
+class LoginFuncionario extends React.Component{
 
     state ={
         login:'',
@@ -17,7 +17,7 @@ class Login extends React.Component{
 
     constructor(){
         super();
-        this.service = new UsuarioService();
+        this.service = new FuncionarioService();
     }
     entrar = async () => {
         this.service.autenticar({
@@ -31,12 +31,10 @@ class Login extends React.Component{
             })
     }
 
-    prepareCadastrar = () => {
-        this.props.history.push("/cadastrar")
-    }
     render(){
         return(
-                        <Card title="Login">
+                            <div className="bs-docs-section">
+                        <Card title="Login funcionario">
                             <div className="row">
                                 <div className="col-lg-12">
                                     <div className="bs-component">
@@ -51,17 +49,16 @@ class Login extends React.Component{
                                                 <input type="password" className="form-control" id="inputPassword" value={this.state.senha}
                                                        onChange={e=>this.setState({senha: e.target.value})}
                                                        placeholder="Digite a Senha"/>
-                
                                             </FormGroup>
-                                            <button className="btn btn-danger" onClick={this.prepareCadastrar}>Cadastrar</button>
                                             <button className="btn btn-success" onClick={this.entrar}>Entrar</button>
                                         </fieldset>
                                     </div>
                                 </div>
                             </div>
                         </Card>
+                            </div>
         )
     }
 }
 
-export default withRouter(Login)
+export default withRouter(LoginFuncionario)

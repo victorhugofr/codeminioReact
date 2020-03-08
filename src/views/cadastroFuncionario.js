@@ -7,13 +7,12 @@ import 'bootswatch/dist/lux/bootstrap.css'
 import {mensagemErro} from '../components/toastr'
 import { withRouter } from 'react-router-dom';
 
-import UsuarioService from '../app/service/usuarioService'
-class CadastroUsuario extends React.Component {
+import FuncionarioService from '../app/service/funcionarioService'
+class CadastroFuncionario extends React.Component {
     state={
         cpf: '',
         nome: '',
         email: '',
-        apartamento: '',
         login: this.cpf,
         telefone: '',
         senha: '',
@@ -22,7 +21,7 @@ class CadastroUsuario extends React.Component {
 
     constructor(){
         super();
-        this.service = new UsuarioService();
+        this.service = new FuncionarioService();
     }
 
     validar(){
@@ -55,14 +54,13 @@ class CadastroUsuario extends React.Component {
             cpf: this.state.cpf,
             nome: this.state.nome,
             email: this.state.email,
-            apartamento: this.state.apartamento,
             login: this.state.cpf,
             telefone:  this.state.telefone,
             senha:  this.state.senha,
             senhaRepeticao:  this.state.senhaRepeticao,
         }
        this.service.salvar(usuario).then(response => {
-        //    mensagemSucesso("Usuário cadastrado com sucesso! Faça o login para acessar o sistema.");
+            mensagemSucesso("Funcionario cadastrado com sucesso!");
            this.props.history.push("/login");
        });
     }
@@ -72,7 +70,8 @@ class CadastroUsuario extends React.Component {
     }
   render(){
     return(
-            <Card title="Cadastro de Morador">
+                <div className="bs-docs-section">
+            <Card title="Cadastro de Funcionario">
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="bs-component">
@@ -92,10 +91,6 @@ class CadastroUsuario extends React.Component {
                                 <input type="text" id="inputTelefone" name="telefone" className="form-control" 
                                         onChange={e=>this.setState({telefone: e.target.value})}/>
                             </FormGroup>
-                            <FormGroup label="Apartamento: *" htmlFor="inputApartamento">
-                                <input type="text" id="inputApartamento" name="apartamento" className="form-control"
-                                        onChange={e=>this.setState({apartamento: e.target.value})}/>
-                            </FormGroup>
                             <FormGroup label="Senha: *" htmlFor="inputSenha">
                                 <input type="password" id="inputSenha" name="senha" className="form-control"
                                         onChange={e=>this.setState({senha: e.target.value})}/>
@@ -111,8 +106,9 @@ class CadastroUsuario extends React.Component {
                     </div>
                 </div>
             </Card>
+                </div>
     );
   }
 }
 
-export default withRouter( CadastroUsuario)
+export default withRouter( CadastroFuncionario)

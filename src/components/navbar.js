@@ -16,10 +16,10 @@ function Navbar(){
                 <NavbarItem href="#/" label="Início">
 
                 </NavbarItem>
-                <NavbarItem href="#/login" label="Login">
+                <NavbarItem href="#/chooseRole" label="Login">
 
                 </NavbarItem>
-                <NavbarItem href="#/cadastrar" label="Cadastrar-se">
+                <NavbarItem href="#/morador/cadastrar" label="Cadastrar-se">
 
                 </NavbarItem>
                 </ul>
