@@ -73,43 +73,53 @@ class CadastroMorador extends React.Component {
   render(){
     return(
         <div className="bs-docs-section">
-            <Card title="Cadastro de Morador">
-                <div className="row">
-                    <div className="col-lg-12">
+            <Card title="Cadastro de Morador">   
                         <div className="bs-component">
-                            <FormGroup label="CPF: *" htmlFor="inpuCpf">
-                                <input type="text" id="inputCPF" name="cpf" className="form-control"
-                                        onChange={e=>this.setState({cpf: e.target.value})}/>
-                            </FormGroup>
-                            <FormGroup label="Nome: *" htmlFor="inputNome">
-                                <input type="text" id="inputNome" name="nome" className="form-control"
+                            <row>
+                                <div className="col-ms-12">
+                                    <FormGroup label="Nome: *" htmlFor="inputNome">
+                                    <input type="text" id="inputNome" name="nome" className="form-control"
                                         onChange={e=>this.setState({nome: e.target.value})}/>
-                            </FormGroup>
-                            <FormGroup label="Email: *" htmlFor="inputEmail">
-                                <input type="email" id="inputEmail" name="email" className="form-control"
-                                        onChange={e=>this.setState({email: e.target.value})}/>
-                            </FormGroup>
-                            <FormGroup label="Telefone: *" htmlFor="inputTelefone">
-                                <input type="text" id="inputTelefone" name="telefone" className="form-control" 
-                                        onChange={e=>this.setState({telefone: e.target.value})}/>
-                            </FormGroup>
-                            <FormGroup label="Apartamento: *" htmlFor="inputApartamento">
-                                <input type="text" id="inputApartamento" name="apartamento" className="form-control"
-                                        onChange={e=>this.setState({apartamento: e.target.value})}/>
-                            </FormGroup>
-                            <FormGroup label="Senha: *" htmlFor="inputSenha">
-                                <input type="password" id="inputSenha" name="senha" className="form-control"
-                                        onChange={e=>this.setState({senha: e.target.value})}/>
-                            </FormGroup>
-                            <FormGroup label="Confirme sua senha: *" htmlFor="inputRepitaSenha">
-                                <input type="password" id="inputRepitaSenha" name="senha" className="form-control"
-                                        onChange={e=>this.setState({senhaRepeticao: e.target.value})}/>
-                            </FormGroup>
+                                     </FormGroup>
+                                </div>
+                            </row>
+                        <div className="row">
+                            <div className="col">
+                                <FormGroup label="CPF: *" htmlFor="inpuCpf">
+                                    <input type="text" id="inputCPF" name="cpf" className="form-control"
+                                            onChange={e=>this.setState({cpf: e.target.value})}/>
+                                </FormGroup>
+                                
+                                <FormGroup label="Telefone: *" htmlFor="inputTelefone">
+                                    <input type="text" id="inputTelefone" name="telefone" className="form-control" 
+                                            onChange={e=>this.setState({telefone: e.target.value})}/>
+                                </FormGroup>
+                                <FormGroup label="Senha: *" htmlFor="inputSenha">
+                                    <input type="password" id="inputSenha" name="senha" className="form-control"
+                                            onChange={e=>this.setState({senha: e.target.value})}/>
+                                </FormGroup>
+                            </div>
+
+                            <div className="col">
+                                <FormGroup label="Apartamento: *" htmlFor="inputApartamento">
+                                    <input type="text" id="inputApartamento" name="apartamento" className="form-control"
+                                            onChange={e=>this.setState({apartamento: e.target.value})}/>
+                                </FormGroup>
+                                <FormGroup label="Email: *" htmlFor="inputEmail">
+                                    <input type="email" id="inputEmail" name="email" className="form-control"
+                                            onChange={e=>this.setState({email: e.target.value})}/>
+                                </FormGroup>
+                                <FormGroup label="Confirme sua senha: *" htmlFor="inputRepitaSenha">
+                                    <input type="password" id="inputRepitaSenha" name="senha" className="form-control"
+                                            onChange={e=>this.setState({senhaRepeticao: e.target.value})}/>
+                                </FormGroup>
+                            </div>
                             <br/>
+                        </div>
+                        <row>
                             <button onClick={this.cancelar} type="button" className="btn btn-danger">Cancelar</button>
                             <button onClick={this.cadastrar} type="button" className="btn btn-success">Cadastrar</button>
-                        </div>
-                    </div>
+                        </row>
                 </div>
             </Card>
         </div>
