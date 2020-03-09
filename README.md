@@ -2,7 +2,7 @@
 
 ### 1. Digite `npm install` na pasta onde clonou esse repositorio
 
-### 2 . Digite `yarn start` na pasta onde clonou esse repositorio
+### 2 . Digite `yarn start ou npm start` na pasta onde clonou esse repositorio
 
 ##### Nota: deve-se ter o comando yarn instalado (npm install yarn -g)
 Abra [http://localhost:3000](http://localhost:3000) para ver o funcionamento no navegador.
