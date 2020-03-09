@@ -19,7 +19,28 @@ class LoginMorador extends React.Component{
         super();
         this.service = new MoradorService();
     }
+
+    validar(){
+        const msgs = []
+        if(!this.state.login){
+            msgs.push('Informe um login.')
+        }
+
+        if(!this.state.senha){
+            msgs.push('Informe sua senha.');
+        }
+        return msgs;
+    }
+
     entrar = async () => {
+        const msgs = this.validar();
+        if(msgs && msgs.length>0){
+            msgs.forEach((msg,index)=>{
+                mensagemErro(msg);
+            })
+            return false;
+        }
+
         this.service.autenticar({
             login: this.state.login,
             senha: this.state.senha
@@ -37,31 +58,37 @@ class LoginMorador extends React.Component{
 
     render(){
         return(
-                            <div className="bs-docs-section">
-                        <Card title="Login morador">
-                            <div className="row">
-                                <div className="col-lg-12">
-                                    <div className="bs-component">
-                                        <fieldset>
-                                            <FormGroup label="Login: " htmlFor="inputLogin">
-                                                <input type="text" className="form-control" id="inputLogin" value={this.state.login}
-                                                       onChange={e=>this.setState({login: e.target.value})} aria-describedby="loginHelp" placeholder="Digite o Login"/>
+            <div className="bs-docs-section">
+                <Card title="Login morador">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <div className="bs-component">
+                                <fieldset>
+                                    <FormGroup label="Login: " htmlFor="inputLogin">
+                                        <input type="text" className="form-control" id="inputLogin" value={this.state.login}
+                                                onChange={e=>this.setState({login: e.target.value})} aria-describedby="loginHelp" placeholder="Digite o Login"/>
+                                     </FormGroup>
 
-                                            </FormGroup>
-
-                                            <FormGroup label="Senha: " htmlFor="inputPassword">
-                                                <input type="password" className="form-control" id="inputPassword" value={this.state.senha}
-                                                       onChange={e=>this.setState({senha: e.target.value})}
-                                                       placeholder="Digite a Senha"/>
-                                            </FormGroup>
-                                            <button className="btn btn-danger" onClick={this.prepareCadastrar}>Cadastrar</button>
-                                            <button className="btn btn-success" onClick={this.entrar}>Entrar</button>
-                                        </fieldset>
+                                    <FormGroup label="Senha: " htmlFor="inputPassword">
+                                        <input type="password" className="form-control" id="inputPassword" value={this.state.senha}
+                                                onChange={e=>this.setState({senha: e.target.value})}
+                                                placeholder="Digite a Senha"/>
+                                     </FormGroup>
+                                    <div>
+                                        <button className="btn btn-success btn-block" onClick={this.entrar}>Entrar</button>
+                                        <br/>
+                                            Não possui uma conta?
+                                        <br/>
+                                        <button className="btn btn-link mr-6" onClick={this.prepareCadastrar}>Cadastrar</button>
                                     </div>
-                                </div>
+                                </fieldset>
                             </div>
-                        </Card>
-                            </div>
+                        </div>
+                    </div>
+                </Card>
+                <br/><br/>
+            </div>
+                            
         )
     }
 }

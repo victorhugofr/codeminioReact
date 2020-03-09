@@ -3,7 +3,7 @@ import NavbarItem from './navbaritem'
 
 function Navbar(){
     return(
-        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <a className="navbar-brand" href="#">Codeminio</a>
             <button className="navbar-toggler" 
                     type="button" data-toggle="collapse" data-target="#navbarColor01" 
@@ -16,7 +16,7 @@ function Navbar(){
                 <NavbarItem href="#/" label="Início">
 
                 </NavbarItem>
-                <NavbarItem href="#/chooseRole" label="Login">
+                <NavbarItem href="#/chooseRole" label="Entrar">
 
                 </NavbarItem>
                 <NavbarItem href="#/morador/cadastrar" label="Cadastrar-se">
@@ -25,6 +25,7 @@ function Navbar(){
                 </ul>
             </div>
         </nav>
+        
     )
 }
 
