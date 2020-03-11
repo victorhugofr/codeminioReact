@@ -10,16 +10,16 @@ import AcessoNegado from '../views/acesso/acessonegado'
 import AuthService from '../app/service/authService'
 import { AuthConsumer } from './provedorAutenticacao'
 
-function RotaAutenticada({component: Component}, isMoradorAutenticado, ...props){
+function RotaAutenticada(props){
     return(
-        <Route {...props} render = {(componentProps)=>{
-            if(isMoradorAutenticado){
+        <Route render = {()=>{
+            if(props.estaAutenticado){
                 return(
-                    <Component {...componentProps}/>
+                    <props.component/>
                 )
             }else{
                 return(
-                    <Redirect to={{pathname: '/acessonegado',state:{from: componentProps.location}}}/>
+                    <Redirect to={{pathname: '/acessonegado',state:{from: props.location}}}/>
                 )
             }
         }}></Route>
@@ -35,7 +35,7 @@ function Rotas(props){
                 <Route path="/loginFuncionario" component={LoginFuncionario}></Route>
                 <Route path="/morador/cadastrar" component={CadastroMorador}></Route>
                 <Route path="/funcionario/cadastrar" component={CadastroMorador}></Route>
-                <RotaAutenticada isMoradorAutenticado={props.isMoradorAutenticado} path="/morador/index" component={IndexMorador}></RotaAutenticada>
+                <RotaAutenticada component={IndexMorador} estaAutenticado={props.isMoradorAutenticado} path="/morador/index" ></RotaAutenticada>
                 <Route path="/acessonegado" component={AcessoNegado}></Route>
             </Switch>
         </HashRouter>
@@ -44,7 +44,7 @@ function Rotas(props){
 
 export default ()=>(
     <AuthConsumer>
-        { (context) => (<Rotas isMoradorAutenticado = {context.isMoradorAutenticado}/>)}
+        { (context) => (<Rotas isMoradorAutenticado = {context.isAutenticado}/>)}
 
     </AuthConsumer>
 )

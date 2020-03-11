@@ -9,17 +9,26 @@ const AuthProvider = AuthContext.Provider;
 class ProvedorAutenticacao extends React.Component{
     state={
         moradorAutenticado: null,
-        isAutenticado: false
+        isAutenticado:  AuthService.isMoradorAutenticado()
     }
 
     iniciarSessao = (morador) =>{
         AuthService.logar(morador);
         this.setState({isAutenticado:true, moradorAutenticado: morador});
+         console.log(this.state.isAutenticado +'sim esta')
     }
 
     encerrarSessao = () =>{
         AuthService.removerMoradorAutenticado();
         this.setState({isAutenticado:false, moradorAutenticado: null});
+    }
+
+    isMoradorLogado = () =>{
+        if(AuthService.isMoradorAutenticado()){
+            this.setState({isAutenticado:true, moradorAutenticado: AuthService.obterMoradorAutenticado});
+        }else{
+            this.setState({isAutenticado:false, moradorAutenticado: null});
+        }
     }
     render(){
         const contexto = {

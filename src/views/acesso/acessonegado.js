@@ -4,9 +4,9 @@ import {withRouter} from 'react-router-dom'
 class AcessoNegado extends React.Component{
     render(){
         return(
-            <div>
-                negado
-            </div>
+            <h4 className="mt-5">
+                Você não tem acesso a essa página =(
+            </h4>
         )
     }
 }

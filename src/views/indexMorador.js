@@ -2,18 +2,11 @@ import React from 'react'
 import {withRouter} from 'react-router-dom'
 
 class IndexMorador extends React.Component{
-
-    permissao = () =>{
-        if(!localStorage.getItem('morador_logado')){
-            this.props.history.push("/acessonegado");
-        }
-    }
-
     render(){
         return(
-            <div onLoad={this.permissao}>
-                teste
-            </div>
+            <h4 className="mt-5">
+                Bem-vindo!
+            </h4>
         )
     }
 }
