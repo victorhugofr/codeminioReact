@@ -6,8 +6,9 @@ import FormGroup from '../components/form-group'
 import 'bootswatch/dist/lux/bootstrap.css'
 import {mensagemErro} from '../components/toastr'
 import { withRouter } from 'react-router-dom';
+import {mensagemSucesso} from '../components/toastr'
 
-import FuncionarioService from '../app/service/funcionarioService'
+import MoradorService from '../app/service/moradorService'
 class CadastroMorador extends React.Component {
     state={
         cpf: '',
@@ -22,7 +23,7 @@ class CadastroMorador extends React.Component {
 
     constructor(){
         super();
-        this.service = new FuncionarioService();
+        this.service = new MoradorService();
     }
 
     validar(){
@@ -62,7 +63,7 @@ class CadastroMorador extends React.Component {
             senhaRepeticao:  this.state.senhaRepeticao,
         }
        this.service.salvar(usuario).then(response => {
-        //    mensagemSucesso("Usuário cadastrado com sucesso! Faça o login para acessar o sistema.");
+            mensagemSucesso("Morador cadastrado com sucesso! Faça o login para acessar o sistema.");
            this.props.history.push("/login");
        });
     }

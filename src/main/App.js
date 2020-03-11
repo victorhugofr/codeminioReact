@@ -2,6 +2,7 @@ import React from 'react';
 
 import Rotas from './router'
 import Navbar from '../components/navbar'
+import ProvedorAutenticacao from './provedorAutenticacao'
 
 import 'toastr/build/toastr.min.js'
 
@@ -13,6 +14,7 @@ class App extends React.Component {
   render(){
     return(
       <>
+      <ProvedorAutenticacao>
       <Navbar/>
       <div className="container">
         <div className="row">
@@ -21,6 +23,7 @@ class App extends React.Component {
           </div>
         </div>
       </div>
+      </ProvedorAutenticacao>
       </>
     );
   }

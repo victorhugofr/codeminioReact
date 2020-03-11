@@ -6,6 +6,7 @@ import {withRouter} from 'react-router-dom'
 import MoradorService from '../app/service/moradorService'
 import {mensagemErro} from '../components/toastr'
 import {mensagemSucesso} from '../components/toastr'
+import { AuthContext } from '../main/provedorAutenticacao'
 
 class LoginMorador extends React.Component{
 
@@ -45,10 +46,11 @@ class LoginMorador extends React.Component{
             login: this.state.login,
             senha: this.state.senha
         }).then(response => {
-                localStorage.setItem('morador_logado', JSON.stringify(response.data))
+               this.context.iniciarSessao(response.data)
+                this.props.history.push("/morador/index")
             //    mensagemSucesso(response.data)
             }).catch(erro => {
-                mensagemErro(erro.response.data)
+                mensagemErro(erro) 
             })
     }
 
@@ -92,5 +94,7 @@ class LoginMorador extends React.Component{
         )
     }
 }
+
+LoginMorador.contextType = AuthContext
 
 export default withRouter(LoginMorador)
