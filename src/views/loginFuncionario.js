@@ -5,7 +5,7 @@ import {withRouter} from 'react-router-dom'
 
 import FuncionarioService from '../app/service/funcionarioService'
 import {mensagemErro} from '../components/toastr'
-import {mensagemSucesso} from '../components/toastr'
+import { AuthContext } from '../main/provedorAutenticacao'
 
 class LoginFuncionario extends React.Component{
 
@@ -45,10 +45,11 @@ class LoginFuncionario extends React.Component{
             login: this.state.login,
             senha: this.state.senha
         }).then(response => {
-                localStorage.setItem('funcionario_logado', JSON.stringify(response.data))
+            this.context.iniciarSessaoFuncionario(response.data)
+            this.props.history.push("/funcionario/index")
             //    mensagemSucesso(response.data)
             }).catch(erro => {
-                mensagemErro(erro.response.data) 
+                mensagemErro(erro) 
             })
     }
 
@@ -82,5 +83,7 @@ class LoginFuncionario extends React.Component{
         )
     }
 }
+
+LoginFuncionario.contextType = AuthContext
 
 export default withRouter(LoginFuncionario)

@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const httpClient = axios.create({
-    baseURL: 'https://codeminio.herokuapp.com/codeminio/'
+    baseURL: 'http://localhost:8080/codeminio/'
 })
 
 class ApiService{

@@ -3,12 +3,11 @@
 export default class AuthService{
 
     static isMoradorAutenticado(){
-        console.log(localStorage.getItem('morador_logado')+'aa');
-        const morador = localStorage.getItem('morador_logado')
+        const morador = localStorage.getItem('morador_logado');
         if(morador){
             return true;
         }else{
-            console.log(localStorage.getItem('morador_logado')+'aa');
+            console.log(localStorage.getItem('morador_logado'));
            return false;
         }
     }
@@ -22,12 +21,20 @@ export default class AuthService{
         }
     }
 
-    static logar(morador){
+    static logarMorador(morador){
         localStorage.setItem('morador_logado',morador)
+    }
+
+    static logarFuncionario(funcionario){
+        localStorage.setItem('funcionario_logado',funcionario)
     }
 
     static obterMoradorAutenticado(){
         return localStorage.getItem('morador_logado');
+    }
+
+    static obterFuncionarioAutenticado(){
+        return localStorage.getItem('funcionario_logado');
     }
     static removerMoradorAutenticado(){
         localStorage.removeItem('morador_logado');

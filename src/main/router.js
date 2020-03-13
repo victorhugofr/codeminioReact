@@ -5,6 +5,7 @@ import CadastroMorador from '../views/cadastroMorador'
 import LoginFuncionario from '../views/loginFuncionario'
 import ChooseRole from '../views/chooseRole'
 import IndexMorador from '../views/indexMorador'
+import IndexFuncionario from '../views/indexFuncionario'
 import AcessoNegado from '../views/acesso/acessonegado'
 
 import Home from '../views/home'
@@ -37,6 +38,7 @@ function Rotas(props){
                 <Route path="/funcionario/cadastrar" component={CadastroMorador}></Route>
                 <Route path="/" component={Home}></Route>
                 <RotaAutenticada component={IndexMorador} estaAutenticado={props.isMoradorAutenticado} path="/morador/index" ></RotaAutenticada>
+                <RotaAutenticada component={IndexFuncionario} estaAutenticado={props.isFuncionarioAutenticado} path="/funcionario/index"></RotaAutenticada>
                 <Route path="/acessonegado" component={AcessoNegado}></Route>
             </Switch>
         </HashRouter>
@@ -45,7 +47,8 @@ function Rotas(props){
 
 export default ()=>(
     <AuthConsumer>
-        { (context) => (<Rotas isMoradorAutenticado = {context.isAutenticado}/>)}
+        { (context) => (<Rotas isMoradorAutenticado = {context.isMoradorAutenticado} 
+                isFuncionarioAutenticado={context.isFuncionarioAutenticado}/>)}
 
     </AuthConsumer>
 )

@@ -9,8 +9,8 @@ class MoradorService extends ApiService{
         return this.post('/autenticar',credenciais);
     }
 
-    salvar(funcionario){
-        return this.post('/salvar', funcionario);
+    salvar(morador){
+        return this.post('/salvar', morador);
     }
 }
 

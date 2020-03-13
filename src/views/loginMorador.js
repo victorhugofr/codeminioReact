@@ -46,8 +46,7 @@ class LoginMorador extends React.Component{
             login: this.state.login,
             senha: this.state.senha
         }).then(response => {
-            console.log('logado com sucesso')
-                this.context.iniciarSessao(response.data)
+                this.context.iniciarSessaoMorador(response.data)
                 this.props.history.push("/morador/index")
             //    mensagemSucesso(response.data)
             }).catch(erro => {

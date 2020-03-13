@@ -16,8 +16,9 @@ function Navbar(props){
                 <ul className="navbar-nav mr-auto">
                     <NavbarItem render = {true} href="#/" label="Início"/>
                     <NavbarItem render = {true} href="#/chooseRole" label="Entrar"/>
-                    <NavbarItem render = {!props.isMoradorAutenticado}href="#/morador/cadastrar" label="Cadastrar-se"/>
+                    <NavbarItem render = {!props.isMoradorAutenticado && !props.isFuncionarioAutenticado}href="#/morador/cadastrar" label="Cadastrar-se"/>
                     <NavbarItem render = {props.isMoradorAutenticado} onClick={props.deslogar} href="#/morador/sair" label="Sair"/>
+                    <NavbarItem render = {props.isFuncionarioAutenticado} onClick={props.deslogar} href="#/funcionario/sair" label="Sair"/>
                 </ul>
             </div>
         </nav>
@@ -28,7 +29,9 @@ function Navbar(props){
 export default () => (
     <AuthConsumer>
         {(context)=>(
-            <Navbar isMoradorAutenticado={context.isAutenticado} deslogar={context.encerrarSessao}></Navbar>
+            <Navbar isMoradorAutenticado={context.isMoradorAutenticado} 
+                    isFuncionarioAutenticado = {context.isFuncionarioAutenticado}
+                    deslogar={context.encerrarSessao}></Navbar>
         )}
     </AuthConsumer>
 )
