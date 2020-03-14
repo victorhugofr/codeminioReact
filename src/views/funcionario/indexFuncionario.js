@@ -1,7 +1,7 @@
 import React from 'react'
-import AuthService from '../app/service/authService'
-import { AuthContext } from '../main/provedorAutenticacao'
-import { AuthConsumer } from '../main/provedorAutenticacao'
+import AuthService from '../../app/service/authService'
+import { AuthContext } from '../../main/provedorAutenticacao'
+import { AuthConsumer } from '../../main/provedorAutenticacao'
 
 function IndexFuncionario (props){
     if(AuthService.isFuncionarioAutenticado()){

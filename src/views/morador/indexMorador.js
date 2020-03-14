@@ -1,8 +1,7 @@
 import React from 'react'
-import {withRouter} from 'react-router-dom'
-import AuthService from '../app/service/authService'
-import { AuthContext } from '../main/provedorAutenticacao'
-import { AuthConsumer } from '../main/provedorAutenticacao'
+import AuthService from '../../app/service/authService'
+import { AuthContext } from '../../main/provedorAutenticacao'
+import { AuthConsumer } from '../../main/provedorAutenticacao'
 
 function IndexMorador (props){
     if(AuthService.isMoradorAutenticado()){

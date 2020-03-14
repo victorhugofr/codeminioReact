@@ -9,6 +9,9 @@ class FuncionarioService extends ApiService{
         return this.post('/autenticar',credenciais);
     }
 
+    listar(){
+        return this.get('/listar');
+    }
     salvar(funcionario){
         return this.post('/salvar', funcionario);
     }
