@@ -1,14 +1,23 @@
 import React from 'react'
-import {withRouter} from 'react-router-dom'
+import AuthService from '../app/service/authService'
+import { AuthContext } from '../main/provedorAutenticacao'
+import { AuthConsumer } from '../main/provedorAutenticacao'
 
-class IndexFuncionario extends React.Component{
-    render(){
-        return(
-            <h4 className="mt-5">
-                Bem-vindo, funcionario!
-            </h4>
-        )
+function IndexFuncionario (props){
+    if(AuthService.isFuncionarioAutenticado()){
+            return(
+               <h4 className="mt-5">
+                   {props.funcionarioAutenticado} ele
+               </h4>
+                 
+             )
     }
 }
 
-export default withRouter( IndexFuncionario)
+IndexFuncionario.contextType = AuthContext
+
+export default ()=>(
+    <AuthConsumer>
+        { (context) => (<IndexFuncionario funcionarioAutenticado = {context.nomefuncionario}/>)}
+    </AuthConsumer>
+)

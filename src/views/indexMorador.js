@@ -1,14 +1,24 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
+import AuthService from '../app/service/authService'
+import { AuthContext } from '../main/provedorAutenticacao'
+import { AuthConsumer } from '../main/provedorAutenticacao'
 
-class IndexMorador extends React.Component{
-    render(){
+function IndexMorador (props){
+    if(AuthService.isMoradorAutenticado()){
         return(
-            <h4 className="mt-5">
-                Bem-vindo, morador!
-            </h4>
+           <h4 className="mt-5">
+               Seja bem-vindo, {props.moradorAutenticado}!!
+           </h4>
+            
         )
     }
 }
 
-export default withRouter( IndexMorador)
+IndexMorador.contextType = AuthContext
+
+export default ()=>(
+    <AuthConsumer>
+        { (context) => (<IndexMorador moradorAutenticado = {context.nomemorador}/>)}
+    </AuthConsumer>
+)
