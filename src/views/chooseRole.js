@@ -8,10 +8,6 @@ class ChooseRole extends React.Component{
         res: ''
     }
 
-    constructor(){
-        super();
-    }
-
     loginMorador = () => {
         this.props.history.push("/loginMorador")
     }

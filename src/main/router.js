@@ -1,12 +1,13 @@
 import React from 'react'
-import {Route, Switch, HashRouter, Redirect, BrowserRouter} from 'react-router-dom'
-import LoginMorador from '../views/loginMorador'
-import CadastroMorador from '../views/cadastroMorador'
-import LoginFuncionario from '../views/loginFuncionario'
+import {Route, Switch, Redirect, BrowserRouter} from 'react-router-dom'
+import LoginMorador from '../views/morador/loginMorador'
+import CadastroMorador from '../views/morador/cadastroMorador'
+import LoginFuncionario from '../views/funcionario/loginFuncionario'
 import ChooseRole from '../views/chooseRole'
-import IndexMorador from '../views/indexMorador'
-import IndexFuncionario from '../views/indexFuncionario'
+import IndexMorador from '../views/morador/indexMorador'
+import IndexFuncionario from '../views/funcionario/indexFuncionario'
 import AcessoNegado from '../views/acesso/acessonegado'
+import CadastroAviso from '../views/aviso/cadastroAviso'
 
 import Home from '../views/home'
 import { AuthConsumer } from './provedorAutenticacao'
@@ -42,6 +43,7 @@ function Rotas(props){
                 <RotaAutenticada component={IndexMorador} estaAutenticado={props.isMoradorAutenticado} path="/morador/index" ></RotaAutenticada>
                 <RotaAutenticada component={IndexFuncionario} estaAutenticado={props.isFuncionarioAutenticado} path="/funcionario/index"></RotaAutenticada>
                 <Route path="/acessonegado" component={AcessoNegado}></Route>
+                <Route path="/aviso/cadastro" component={CadastroAviso}></Route>
             </Switch>
         </BrowserRouter>
     )

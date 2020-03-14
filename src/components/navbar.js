@@ -5,7 +5,7 @@ import { AuthConsumer } from '../main/provedorAutenticacao';
 function Navbar(props){
     return(
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a className="navbar-brand" href="#">Codeminio</a>
+            <a className="navbar-brand" href="/">Codeminio</a>
             <button className="navbar-toggler" 
                     type="button" data-toggle="collapse" data-target="#navbarColor01" 
                         aria-controls="navbarColor01" aria-expanded="true" aria-label="Toggle navigation">
@@ -16,6 +16,7 @@ function Navbar(props){
                 <ul className="navbar-nav mr-auto">
                     <NavbarItem render = {true} href="/" label="Início"/>
                     <NavbarItem render = {!props.isMoradorAutenticado && !props.isFuncionarioAutenticado} href="/chooseRole" label="Entrar"/>
+                    <NavbarItem render = {props.isFuncionarioAutenticado} href="/aviso/cadastro" label="Cadastrar aviso"/>
                     <NavbarItem render = {!props.isMoradorAutenticado && !props.isFuncionarioAutenticado}href="/morador/cadastrar" label="Cadastrar-se"/>
                     <NavbarItem render = {props.isMoradorAutenticado} onClick={props.deslogar} href="/morador/sair" label="Sair"/>
                     <NavbarItem render = {props.isFuncionarioAutenticado} onClick={props.deslogar} href="/funcionario/sair" label="Sair"/>

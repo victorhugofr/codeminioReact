@@ -1,13 +1,13 @@
 import React from 'react'
-import Card from '../components/card'
-import FormGroup from '../components/form-group'
+import Card from '../../components/card'
+import FormGroup from '../../components/form-group'
 import {withRouter} from 'react-router-dom'
 
-import FuncionarioService from '../app/service/funcionarioService'
-import {mensagemErro} from '../components/toastr'
-import { AuthContext } from '../main/provedorAutenticacao'
+import MoradorService from '../../app/service/moradorService'
+import {mensagemErro} from '../../components/toastr'
+import { AuthContext } from '../../main/provedorAutenticacao'
 
-class LoginFuncionario extends React.Component{
+class LoginMorador extends React.Component{
 
     state ={
         login:'',
@@ -17,7 +17,7 @@ class LoginFuncionario extends React.Component{
 
     constructor(){
         super();
-        this.service = new FuncionarioService();
+        this.service = new MoradorService();
     }
 
     validar(){
@@ -45,45 +45,55 @@ class LoginFuncionario extends React.Component{
             login: this.state.login,
             senha: this.state.senha
         }).then(response => {
-            this.context.iniciarSessaoFuncionario(response.data)
-            this.props.history.push("/funcionario/index")
+                this.context.iniciarSessaoMorador(response.data)
+                this.props.history.push("/morador/index")
             //    mensagemSucesso(response.data)
             }).catch(erro => {
                 mensagemErro(erro) 
             })
     }
 
+    prepareCadastrar = () => {
+        this.props.history.push("/morador/cadastrar")
+    }
+
     render(){
         return(
             <div className="bs-docs-section">
-                <Card title="Login funcionario">
+                <Card title="Login morador">
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="bs-component">
                                 <fieldset>
                                     <FormGroup label="Login: " htmlFor="inputLogin">
                                         <input type="text" className="form-control" id="inputLogin" value={this.state.login}
-                                               onChange={e=>this.setState({login: e.target.value})} aria-describedby="loginHelp" placeholder="Digite o Login"/>
-                                    </FormGroup>
+                                                onChange={e=>this.setState({login: e.target.value})} aria-describedby="loginHelp" placeholder="Digite o Login"/>
+                                     </FormGroup>
 
                                     <FormGroup label="Senha: " htmlFor="inputPassword">
                                         <input type="password" className="form-control" id="inputPassword" value={this.state.senha}
-                                               onChange={e=>this.setState({senha: e.target.value})}
-                                               placeholder="Digite a Senha"/>
-                                    </FormGroup>
-                                    <div className="text-right">
+                                                onChange={e=>this.setState({senha: e.target.value})}
+                                                placeholder="Digite a Senha"/>
+                                     </FormGroup>
+                                    <div>
                                         <button className="btn btn-success btn-block" onClick={this.entrar}>Entrar</button>
+                                        <br/>
+                                            Não possui uma conta?
+                                        <br/>
+                                        <button className="btn btn-link mr-6" onClick={this.prepareCadastrar}>Cadastrar</button>
                                     </div>
                                 </fieldset>
                             </div>
                         </div>
                     </div>
                 </Card>
+                <br/><br/>
             </div>
+                            
         )
     }
 }
 
-LoginFuncionario.contextType = AuthContext
+LoginMorador.contextType = AuthContext
 
-export default withRouter(LoginFuncionario)
+export default withRouter(LoginMorador)

@@ -1,14 +1,14 @@
 import React from 'react';
-import Card from '../components/card';
-import FormGroup from '../components/form-group'
+import Card from '../../components/card';
+import FormGroup from '../../components/form-group'
 
 
 import 'bootswatch/dist/lux/bootstrap.css'
-import {mensagemErro} from '../components/toastr'
+import {mensagemErro} from '../../components/toastr'
 import { withRouter } from 'react-router-dom';
-import {mensagemSucesso} from '../components/toastr'
+import {mensagemSucesso} from '../../components/toastr'
 
-import MoradorService from '../app/service/moradorService'
+import MoradorService from '../../app/service/moradorService'
 class CadastroMorador extends React.Component {
     state={
         cpf: '',
@@ -123,6 +123,7 @@ class CadastroMorador extends React.Component {
                         </row>
                 </div>
             </Card>
+            <br/>
         </div>
     );
   }

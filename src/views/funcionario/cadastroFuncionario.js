@@ -1,13 +1,13 @@
 import React from 'react';
-import Card from '../components/card';
-import FormGroup from '../components/form-group'
+import Card from '../../components/card';
+import FormGroup from '../../components/form-group'
 
 
 import 'bootswatch/dist/lux/bootstrap.css'
-import {mensagemErro} from '../components/toastr'
+import {mensagemErro} from '../../components/toastr'
 import { withRouter } from 'react-router-dom';
 
-import FuncionarioService from '../app/service/funcionarioService'
+import FuncionarioService from '../../app/service/funcionarioService'
 class CadastroFuncionario extends React.Component {
     state={
         cpf: '',

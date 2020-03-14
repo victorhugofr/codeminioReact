@@ -2,15 +2,16 @@ import ApiService from '../apiservice'
 
 class AvisoService extends ApiService{
     constructor(){
-        super('/');
+        super('');
     }
 
-    mostrar(){
-        return this.post('/autenticar',credenciais);
+    listar(){
+        return this.get('/aviso');
     }
 
     salvar(idFuncionario, aviso){
-        return this.post('/salvar', idFuncionario,aviso);
+        console.log(aviso)
+        return this.post('/funcionario/'+idFuncionario+'/aviso',aviso);
     }
 
 }
