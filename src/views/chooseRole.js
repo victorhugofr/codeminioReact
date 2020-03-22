@@ -18,6 +18,7 @@ class ChooseRole extends React.Component{
 
     render(){
         return(
+            <div className="col-md-8" style={{position: 'relative', left: '220px'}}>
             <div className="bs-docs-section">
             <Card title="O que você é?">
                 <div className="row">
@@ -30,6 +31,7 @@ class ChooseRole extends React.Component{
                 </div>
                 </div></div>
             </Card>
+            </div>
             </div>
         )
     }

@@ -59,6 +59,7 @@ class LoginMorador extends React.Component{
 
     render(){
         return(
+            <div className="col-md-8" style={{position: 'relative', left: '220px'}}>
             <div className="bs-docs-section">
                 <Card title="Login morador">
                     <div className="row">
@@ -89,7 +90,7 @@ class LoginMorador extends React.Component{
                 </Card>
                 <br/><br/>
             </div>
-                            
+            </div>            
         )
     }
 }

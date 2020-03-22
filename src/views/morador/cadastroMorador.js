@@ -73,6 +73,7 @@ class CadastroMorador extends React.Component {
     }
   render(){
     return(
+        <div className="col-md-8" style={{position: 'relative', left: '220px'}}>
         <div className="bs-docs-section">
             <Card title="Cadastro de Morador">   
                         <div className="bs-component">
@@ -124,6 +125,7 @@ class CadastroMorador extends React.Component {
                 </div>
             </Card>
             <br/>
+        </div>
         </div>
     );
   }

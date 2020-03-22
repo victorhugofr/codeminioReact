@@ -55,6 +55,7 @@ class LoginFuncionario extends React.Component{
 
     render(){
         return(
+            <div className="col-md-8" style={{position: 'relative', left: '220px'}}>
             <div className="bs-docs-section">
                 <Card title="Login funcionario">
                     <div className="row">
@@ -79,6 +80,7 @@ class LoginFuncionario extends React.Component{
                         </div>
                     </div>
                 </Card>
+            </div>
             </div>
         )
     }
