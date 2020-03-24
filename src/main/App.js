@@ -18,9 +18,7 @@ class App extends React.Component {
       <Navbar/>
       <div className="container">
         <div className="row">
-          <div className="col-md-8" style={{position: 'relative', left: '220px'}}>
               <Rotas />
-          </div>
         </div>
       </div>
       </ProvedorAutenticacao>

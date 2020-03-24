@@ -6,16 +6,18 @@ function Home (){
        <img className="img-home" src="main-home.png" alt="" />
 
        <p className="home-text">
-       O Codeminio trata-se de um sistema de gestão de condomínios moderno que permite um maior controle tanto por parte da admnistração quanto dos moradores, facilitando a convivência entre todos e fornecendo serviços essenciais para vida em comunidade. Trata-se de um sistema que permite ao morador fazer todas as operações sem colocar um pé fora do seu apartamento.
+         O Codeminio trata-se de um sistema de gestão de condomínios moderno que permite um maior controle tanto por parte da admnistração quanto dos moradores, facilitando a convivência entre todos e fornecendo serviços essenciais para vida em comunidade. Trata-se de um sistema que permite ao morador fazer todas as operações sem colocar um pé fora do seu apartamento.
        </p>
-
+       <hr class="my-4"/>
 	  <section class="ftco-section">
-    	<div class="container">
     		<div class="row justify-content-center pb-5 mb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h3>principais funcionalidades</h3>
+          <div class="col-md-12 heading-section text-center ftco-animate">
+            <h3>principais <br/>funcionalidades</h3>
+            <hr class="my-4"/>
+            <br></br>
           </div>
         </div>
+        <div class="container">
     		<div class="row">
           <div class="col-md-6 services ftco-animate">
             <div class="d-block d-flex">
@@ -27,6 +29,8 @@ function Home (){
                 <p>Permite reservar áreas e passar uma lista de convidados</p>
               </div>
             </div>
+              <br/>
+              <br/>
             <div class="d-block d-flex">
               <div class="icon d-flex justify-content-center align-items-center">
             		<img className="img-grid" src="vaga.png" alt="" />
@@ -48,6 +52,8 @@ function Home (){
                 <p>Moradores podem fazer reclamações com o síndico e Administração pode enviar avisos, tudo virtualmente</p>
               </div>
             </div> 
+            <br/>
+            <br/>
             <div class="d-block d-flex">
               <div class="icon d-flex justify-content-center align-items-center">
             		<img className="img-grid" src="liberacao.png" alt="" />
