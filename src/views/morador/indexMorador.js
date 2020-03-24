@@ -32,7 +32,7 @@ class IndexMorador extends React.Component {
     render(){
         if(AuthService.isMoradorAutenticado()){
                 return(
-                    <>
+                    <div className="col-md-12" style={{position: 'relative'}}>
                         <h2 className="mt-4">
                             Olá, { AuthService.obterMoradorAutenticado().nome }
                         </h2>
@@ -41,7 +41,7 @@ class IndexMorador extends React.Component {
                          
                         {this.avisos()}
                         <br/>
-                    </>
+                    </div>
                 )
         }
     }

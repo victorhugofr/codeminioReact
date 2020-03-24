@@ -32,7 +32,7 @@ class IndexFuncionario extends React.Component {
     render(){
         if(AuthService.isFuncionarioAutenticado()){
                 return(
-                    <>
+                    <div className="col-md-12" style={{position: 'relative'}}>
                         <h2 className="mt-4">
                             Olá, { AuthService.obterFuncionarioAutenticado().nome }
                         </h2>
@@ -41,7 +41,7 @@ class IndexFuncionario extends React.Component {
                          
                         {this.avisos()}
                         <br/>
-                    </>
+                    </div>
                 )
         }
     }
