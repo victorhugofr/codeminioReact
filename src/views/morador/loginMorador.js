@@ -66,9 +66,9 @@ class LoginMorador extends React.Component{
                         <div className="col-lg-12">
                             <div className="bs-component">
                                 <fieldset>
-                                    <FormGroup label="Login: " htmlFor="inputLogin">
+                                    <FormGroup label="CPF: " htmlFor="inputLogin">
                                         <input type="text" className="form-control" id="inputLogin" value={this.state.login}
-                                                onChange={e=>this.setState({login: e.target.value})} aria-describedby="loginHelp" placeholder="Digite o Login"/>
+                                                onChange={e=>this.setState({login: e.target.value})} aria-describedby="loginHelp" placeholder="Digite o seu CPF"/>
                                      </FormGroup>
 
                                     <FormGroup label="Senha: " htmlFor="inputPassword">
