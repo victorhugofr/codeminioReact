@@ -22,7 +22,7 @@ export default class AuthService{
     }
 
     static logarMorador(morador){
-        localStorage.setItem('morador_logado',morador)
+        localStorage.setItem('morador_logado',JSON.stringify(morador))
     }
 
     static logarFuncionario(funcionario){
