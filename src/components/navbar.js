@@ -14,7 +14,9 @@ function Navbar(props){
 
             <div className="collapse navbar-collapse" id="navbarColor01">
                 <ul className="navbar-nav mr-auto">
-                    <NavbarItem render = {true} href="/" label="Início"/>
+                    <NavbarItem render = {!props.isMoradorAutenticado && !props.isFuncionarioAutenticado} href="/" label="Início"/>
+                    <NavbarItem render = {!props.isMoradorAutenticado && props.isFuncionarioAutenticado} href="/funcionario/index" label="Início"/>
+                    <NavbarItem render = {props.isMoradorAutenticado && !props.isFuncionarioAutenticado} href="/morador/index" label="Início"/>
                     <NavbarItem render = {!props.isMoradorAutenticado && !props.isFuncionarioAutenticado} href="/chooseRole" label="Entrar"/>
                     <NavbarItem render = {props.isFuncionarioAutenticado} href="/aviso/cadastro" label="Cadastrar aviso"/>
                     <NavbarItem render = {!props.isMoradorAutenticado && !props.isFuncionarioAutenticado}href="/morador/cadastrar" label="Cadastrar-se"/>

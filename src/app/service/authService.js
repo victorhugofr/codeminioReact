@@ -22,19 +22,19 @@ export default class AuthService{
     }
 
     static logarMorador(morador){
-        localStorage.setItem('morador_logado',morador)
+        localStorage.setItem('morador_logado',JSON.stringify(morador))
     }
 
     static logarFuncionario(funcionario){
-        localStorage.setItem('funcionario_logado',funcionario)
+        localStorage.setItem('funcionario_logado',JSON.stringify(funcionario))
     }
 
     static obterMoradorAutenticado(){
-        return localStorage.getItem('morador_logado');
+        return JSON.parse(localStorage.getItem('morador_logado'));
     }
 
     static obterFuncionarioAutenticado(){
-        return localStorage.getItem('funcionario_logado');
+        return  JSON.parse(localStorage.getItem('funcionario_logado'));
     }
     static removerMoradorAutenticado(){
         localStorage.removeItem('morador_logado');
